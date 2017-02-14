@@ -1,10 +1,16 @@
 # artoo
 Raspberry Pi R2D2
 
-Start with a Raspberry Pi with the latest Raspbian image, update and upgrade:
+Start with a Raspberry Pi with the latest Raspbian image, update and upgrade.
 ``` 
 sudo apt-get update
 sudo apt-get upgrade
+```
+
+Download and run pip
+```
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python get-pip.py
 ```
 
 Create a directory named snowboy and download the latest snowboy code (http://docs.kitt.ai/snowboy/).  Then unzip the contents, move it up a level, and delete the compressed file and the folder.  Example below:
@@ -15,6 +21,7 @@ wget https://s3-us-west-2.amazonaws.com/snowboy/snowboy-releases/rpi-arm-raspbia
 tar -vxjf rpi-arm-raspbian-8.0-1.1.0.tar.bz2
 mv rpi-arm-raspbian-8.0-1.1.0/* .
 rmdir rpi-arm-raspbian-8.0-1.1.0/
+rm rpi-arm-raspbian-8.0-1.1.0.tar.bz2
 ```
 
 Adding a note here for later.  I want R2 to welcome me when my phone gets in range.  He will be looking for my bluetooth signal.
