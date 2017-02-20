@@ -13,7 +13,7 @@ wget https://bootstrap.pypa.io/get-pip.py
 sudo python get-pip.py
 ```
 
-## Snowboy
+## Snowboy - Hotword Detection
 We will use Snowboy Hotword Detection by [KITT.AI](http://kitt.ai).
 Snowboy is a customizable hotword detection engine for you to create your own
 hotword like "OK Google" or "Alexa". It is powered by deep neural networks and
@@ -44,6 +44,7 @@ rmdir rpi-arm-raspbian-8.0-1.1.0/
 rm rpi-arm-raspbian-8.0-1.1.0.tar.bz2
 ```
 
+## Bluetooth
 Adding a note here for later.  I want R2 to welcome me when my phone gets in range.  
 R2D2 will be looking for my bluetooth signal.
 ```
