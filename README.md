@@ -13,7 +13,7 @@ wget https://bootstrap.pypa.io/get-pip.py
 sudo python get-pip.py
 ```
 
-** Snowboy
+## Snowboy
 We will use Snowboy Hotword Detection by [KITT.AI](http://kitt.ai).
 Snowboy is a customizable hotword detection engine for you to create your own
 hotword like "OK Google" or "Alexa". It is powered by deep neural networks and
