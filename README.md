@@ -1,10 +1,11 @@
 # artoo
 Raspberry Pi R2D2
 
-Start with a Raspberry Pi with the latest Raspbian image, update and upgrade.
+Start with a Raspberry Pi with the latest Raspbian image, update, upgrade, and install git-core.
 ``` 
 sudo apt-get update
 sudo apt-get upgrade
+sudo apt-get install git-core
 ```
 
 Download and run pip
