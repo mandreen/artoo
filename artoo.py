@@ -8,7 +8,7 @@ import signal
 TOP_DIR = os.path.dirname(os.path.abspath(__file__))
 RESOURCE_FILE = os.path.join(TOP_DIR, "resources/common.res")
 MODEL_DIR = os.path.join(TOP_DIR, "resources/models")
-SOUND_DIR = os.path.join(TOP_DIR, "resources/sounds")
+
 
 interrupted = False
 
@@ -36,26 +36,31 @@ def how_was_your_day_artoo():
     omxp = Popen(['omxplayer',os.path.join(response)])
     
 
+models = []
+model_list = [n for n in os.listdir(MODEL_DIR) if not os.path.isfile(n)]
+for model in model_list:
+    models.append(os.path.join(MODEL_DIR, model))
+
 callbacks = []
 # write callbacks for any identified models
 for m in [os.path.splitext(n)[0] for n in os.listdir(MODEL_DIR) if not os.path.isfile(n)]:
     callbacks.append(m)
 
 
-if len(sys.argv) != 3:
-    print("Error: need to specify 2 model names")
-    print("Usage: python demo.py 1st.model 2nd.model")
-    sys.exit(-1)
+#if len(sys.argv) != 3:
+#    print("Error: need to specify 2 model names")
+#    print("Usage: python demo.py 1st.model 2nd.model")
+#    sys.exit(-1)
 
-models = sys.argv[1:]
+#models = sys.argv[1:]
 
 # capture SIGINT signal, e.g., Ctrl+C
 signal.signal(signal.SIGINT, signal_handler)
 
 sensitivity = [0.5]*len(models)
 detector = snowboydecoder.HotwordDetector(models, sensitivity=sensitivity)
-callbacks = [lambda: snowboydecoder.play_audio_file(snowboydecoder.DETECT_DING),
-             lambda: snowboydecoder.play_audio_file(snowboydecoder.DETECT_DONG)]
+#callbacks = [lambda: snowboydecoder.play_audio_file(snowboydecoder.DETECT_DING),
+#             lambda: snowboydecoder.play_audio_file(snowboydecoder.DETECT_DONG)]
 print('Listening... Press Ctrl+C to exit')
 
 # main loop
