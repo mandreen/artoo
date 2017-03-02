@@ -4,6 +4,8 @@ import snowboydecoder
 import sys
 import signal
 
+from subprocess import Popen
+
 # artoo core based on snowboy demo
 TOP_DIR = os.path.dirname(os.path.abspath(__file__))
 RESOURCE_FILE = os.path.join(TOP_DIR, "resources/common.res")
