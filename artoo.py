@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import os
 import random
 import snowboydecoder
@@ -42,11 +44,14 @@ models = []
 model_list = [n for n in os.listdir(MODEL_DIR) if not os.path.isfile(n)]
 for model in model_list:
     models.append(os.path.join(MODEL_DIR, model))
+    print("model: {0}".format(os.path.join(MODEL_DIR, model)))
+
 
 callbacks = []
 # write callbacks for any identified models
 for m in [os.path.splitext(n)[0] for n in os.listdir(MODEL_DIR) if not os.path.isfile(n)]:
     callbacks.append(m)
+    print("callback: {0}".format(m))
 
 
 #if len(sys.argv) != 3:
