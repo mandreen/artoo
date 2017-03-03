@@ -38,7 +38,11 @@ def how_was_your_day_artoo():
     s = random.randint(0,i)
     response = [name for name in os.listdir(SOUND_DIR) if not os.path.isfile(name)][s]
     omxp = Popen(['omxplayer',os.path.join(response)])
-    
+
+
+def function_num(n):
+    print("function number {0}".format(n))
+
 
 models = []
 model_list = [n for n in os.listdir(MODEL_DIR) if not os.path.isfile(n)]
@@ -48,9 +52,11 @@ for model in model_list:
 
 
 callbacks = []
+i = 0
 # write callbacks for any identified models
 for m in [os.path.splitext(n)[0] for n in os.listdir(MODEL_DIR) if not os.path.isfile(n)]:
-    callbacks.append(m)
+    callbacks.append(function_num(i))
+    i = i + 1
     print("callback: {0}".format(m))
 
 
