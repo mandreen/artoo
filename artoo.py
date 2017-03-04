@@ -40,7 +40,7 @@ def how_was_your_day_artoo():
     omxp = Popen(['omxplayer',os.path.join(response)])
 
 
-def function_num(n):
+def function_name(n):
     print("=========================")
     print("function number {0}".format(n))
     print("=========================")
@@ -54,11 +54,9 @@ for model in model_list:
 
 
 callbacks = []
-i = 0
 # write callbacks for any identified models
 for m in [os.path.splitext(n)[0] for n in os.listdir(MODEL_DIR) if not os.path.isfile(n)]:
-    callbacks.append(function_num(i))
-    i = i + 1
+    callbacks.append(lambda: function_name(m))
     print("callback: {0}".format(m))
 
 
