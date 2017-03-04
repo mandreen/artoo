@@ -41,7 +41,9 @@ def how_was_your_day_artoo():
 
 
 def function_num(n):
+    print("=========================")
     print("function number {0}".format(n))
+    print("=========================")
 
 
 models = []
