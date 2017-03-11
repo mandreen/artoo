@@ -9,14 +9,11 @@ TOP_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_DIR = os.path.join(TOP_DIR, "resources/models")
 SOUND_DIR = os.path.join(TOP_DIR, "resources/sounds")
 
-def get_models():
-    return [os.path.join(MODEL_DIR, "how_was_your_day_artoo.pmdl"),
-            os.path.join(MODEL_DIR, "hello_artoo.pmdl")]
 
-
-def get_callbacks():
-    return [lambda: how_was_your_day_artoo(),
-            lambda: hello_artoo()]
+def get_dictionary():
+    return {os.path.join(MODEL_DIR, "hello_artoo.pmdl"): lambda: hello_artoo(),
+            os.path.join(MODEL_DIR, "how_was_your_day_artoo.pmdl"): 
+            lambda: how_was_your_day_artoo()}
 
 
 def hello_artoo():
