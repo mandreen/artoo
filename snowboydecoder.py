@@ -4,11 +4,9 @@ import collections
 import pyaudio
 import snowboydetect
 import time
-import wave
 import os
 import logging
 
-from subprocess import Popen
 
 logging.basicConfig()
 logger = logging.getLogger("snowboy")
@@ -16,8 +14,6 @@ logger.setLevel(logging.INFO)
 TOP_DIR = os.path.dirname(os.path.abspath(__file__))
 
 RESOURCE_FILE = os.path.join(TOP_DIR, "resources/common.res")
-DETECT_DING = os.path.join(TOP_DIR, "resources/sounds/r2d2_5.mp3")
-DETECT_DONG = os.path.join(TOP_DIR, "resources/sounds/r2d2_16.mp3")
 
 
 class RingBuffer(object):
@@ -34,11 +30,6 @@ class RingBuffer(object):
         tmp = bytes(bytearray(self._buf))
         self._buf.clear()
         return tmp
-
-
-def play_audio_file(fname=DETECT_DING):
-    omxp = Popen(['omxplayer',fname])
-
 
 
 class HotwordDetector(object):
@@ -100,7 +91,7 @@ class HotwordDetector(object):
             stream_callback=audio_callback)
 
 
-    def start(self, detected_callback=play_audio_file,
+    def start(self, detected_callback,
               interrupt_check=lambda: False,
               sleep_time=0.03):
         """
