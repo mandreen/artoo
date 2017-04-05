@@ -50,4 +50,5 @@ Adding a note here for later.  I want R2 to welcome me when my phone gets in ran
 R2D2 will be looking for my bluetooth signal.
 ```
 sudo hcitool info 00:00:00:00:00:00 <your bluetooth MAC address>
+sudo apt-get install python-bluez
 ```
